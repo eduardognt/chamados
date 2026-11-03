@@ -1,12 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CallsHelp</title>
-    <script type="module" src="dist/index.js" defer> </script>
-</head>
-<body>
-    
-</body>
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>UMBRELLA</title>
+
+    <link href="./dist/output.css" rel="stylesheet" />
+    <script type="module" src="./dist/index.js" defer></script>
+  </head>
+
+  <body class="bg-mist-800 text-white">
+
+    <!-- HEADER -->
+    <header class="flex justify-between items-center gap-4 p-4 bg-mist-900">
+      <h1 class="text-purple-500 font-bold">UMBRELLA</h1>
+
+      <div>
+        <h2 id="consoleUser" class="font-bold py-2 px-4 text-amber-300">
+          Eduardo (user)
+        </h2>
+      </div>
+    </header>
+
+    <!-- LAYOUT PRINCIPAL -->
+    <div class="flex min-h-screen">
+
+      <!-- SIDEBAR -->
+      <aside class="w-64 shrink-0 bg-mist-900 text-white p-6">
+
+        <h2 class="text-2xl font-bold mb-8">
+          Help Desk
+        </h2>
+
+        <nav class="space-y-2">
+
+          <a href="#" class="block p-3 rounded-lg bg-mist-800">
+            Dashboard
+          </a>
+
+          <a href="#" class="block p-3 rounded-lg hover:bg-mist-800">
+            Chamados
+          </a>
+
+          <a href="#" class="block p-3 rounded-lg hover:bg-mist-800">
+            Configurações
+          </a>
+
+        </nav>
+
+      </aside>
+
+      <!-- CONTEÚDO PRINCIPAL -->
+      <main class="flex-1 min-w-0 bg-mist-400 p-4">
+
+        <h2 class="text-3xl font-bold">
+          Dashboard
+        </h2>
+
+        <p class="text-gray-900 mt-2">
+          Gerencie seus chamados.
+        </p>
+
+        <!-- CARDS -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mt-8">
+
+          <div class="bg-mist-700 p-6 rounded-xl shadow-sm">
+            <p class="text-orange-500">Chamados abertos</p>
+            <p class="text-3xl font-bold mt-2">12</p>
+          </div>
+
+          <div class="bg-mist-700 p-6 rounded-xl shadow-sm">
+            <p class="text-amber-300">Em andamento</p>
+            <p class="text-3xl font-bold mt-2">8</p>
+          </div>
+
+          <div class="bg-mist-700 p-6 rounded-xl shadow-sm">
+            <p class="text-green-600">Resolvidos</p>
+            <p class="text-3xl font-bold mt-2">35</p>
+          </div>
+
+          <div class="bg-mist-700 p-6 rounded-xl shadow-sm">
+            <p class="text-purple-500">Total</p>
+            <p class="text-3xl font-bold mt-2">55</p>
+          </div>
+
+        </div>
+
+      </main>
+
+    </div>
+
+  </body>
 </html>
