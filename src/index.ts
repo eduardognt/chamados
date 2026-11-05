@@ -1,11 +1,15 @@
-const consoleUser = document.getElementById('consoleUser') as HTMLElement;
+const consoleUser = document.getElementById("consoleUser");
 
-function msgConsoleClick () {
-    if (consoleUser.textContent === 'Eduardo (user)') {
-        consoleUser.textContent = 'Click on the consoleUser element';
-    } else {
-        consoleUser.textContent = 'Eduardo (user)';
-    }
+function msgConsoleClick() {
+  if (consoleUser) {
+    if (consoleUser.textContent === "Eduardo (user)") {
+      return consoleUser.textContent = "Click on the consoleUser element";
+    } 
+  }
 }
 
-consoleUser.addEventListener('click', msgConsoleClick);
+if (consoleUser == null) {
+  console.log("Element with ID 'consoleUser' not found");
+} else {
+  consoleUser.addEventListener("click", msgConsoleClick);
+}
