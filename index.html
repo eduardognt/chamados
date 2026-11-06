@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="pt-BR">
   <head>
@@ -11,10 +10,11 @@
     <script type="module" src="./dist/index.js" defer></script>
   </head>
 
-  <body class="bg-mist-800 text-white">
-
+  <body class="text-white">
     <!-- HEADER -->
-    <header class="flex justify-between items-center gap-4 p-4 bg-mist-900">
+    <header
+      class="flex justify-between items-center gap-4 p-4 bg-gray-900 border-b border-gray-700"
+    >
       <h1 class="text-purple-500 font-bold">UMBRELLA</h1>
 
       <div>
@@ -26,71 +26,113 @@
 
     <!-- LAYOUT PRINCIPAL -->
     <div class="flex min-h-screen">
-
       <!-- SIDEBAR -->
-      <aside class="w-64 shrink-0 bg-mist-900 text-white p-6">
-
-        <h2 class="text-2xl font-bold mb-8">
-          Help Desk
-        </h2>
+      <aside
+        class="w-64 shrink-0 bg-gray-900 text-white p-6 border-r border-gray-700"
+      >
+        <h2 class="text-2xl font-bold mb-8">Help Desk</h2>
 
         <nav class="space-y-2">
-
-          <a href="#" class="block p-3 rounded-lg bg-mist-800">
+          <a
+            href="#"
+            class="block p-3 rounded-lg bg-slate-800 hovrer:bg-slate-800 hover:border hover:border-slate-700"
+          >
             Dashboard
           </a>
 
-          <a href="#" class="block p-3 rounded-lg hover:bg-mist-800">
+          <a
+            href="#"
+            class="block p-3 rounded-lg hover:bg-slate-800 hover:border hover:border-slate-700"
+          >
             Chamados
           </a>
 
-          <a href="#" class="block p-3 rounded-lg hover:bg-mist-800">
+          <a
+            href="#"
+            class="block p-3 rounded-lg hover:bg-slate-800 hover:border hover:border-slate-700"
+          >
             Configurações
           </a>
-
         </nav>
-
       </aside>
 
       <!-- CONTEÚDO PRINCIPAL -->
-      <main class="flex-1 min-w-0 bg-mist-400 p-4">
+      <main class="flex-1 min-w-0 bg-slate-900 p-4">
+        <h2 class="text-3xl font-bold">Dashboard</h2>
 
-        <h2 class="text-3xl font-bold">
-          Dashboard
-        </h2>
-
-        <p class="text-gray-900 mt-2">
-          Gerencie seus chamados.
-        </p>
+        <p class="mt-2">Gerencie seus chamados.</p>
 
         <!-- CARDS -->
         <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mt-8">
-
-          <div class="bg-mist-700 p-6 rounded-xl shadow-sm">
+          <div
+            class="bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-700"
+          >
             <p class="text-orange-500">Chamados abertos</p>
             <p class="text-3xl font-bold mt-2">12</p>
           </div>
 
-          <div class="bg-mist-700 p-6 rounded-xl shadow-sm">
+          <div
+            class="bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-700"
+          >
             <p class="text-amber-300">Em andamento</p>
             <p class="text-3xl font-bold mt-2">8</p>
           </div>
 
-          <div class="bg-mist-700 p-6 rounded-xl shadow-sm">
+          <div
+            class="bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-700"
+          >
             <p class="text-green-600">Resolvidos</p>
             <p class="text-3xl font-bold mt-2">35</p>
           </div>
 
-          <div class="bg-mist-700 p-6 rounded-xl shadow-sm">
+          <div
+            class="bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-700"
+          >
             <p class="text-purple-500">Total</p>
             <p class="text-3xl font-bold mt-2">55</p>
           </div>
-
         </div>
-
       </main>
+      </div>
 
-    </div>
+      // ------------FIM DASHBOARD-----------------
 
+      <div id="criarChamado" class="bg-gray-900 flex flex-col p-6 border-l border-gray-700 ">
+        <h1 class="text-2xl font-bold">Criar Chamado</h1>
+        <form id="chamadoForm" class="flex flex-col gap-4 mt-4">
+          <label for="titulo">Título:</label>
+          <input
+            id="titulo"
+            name="titulo"
+            type="text"
+            placeholder="Título do chamado"
+            class="bg-gray-800"
+            required
+          />
+          <label for="descricao">Descrição:</label>
+          <textarea
+            id="descricao"
+            name="descricao"
+            placeholder="Descreva seu problema."
+            class="bg-gray-800"
+            required
+          ></textarea>
+          <label for="prioridade">Prioridade:</label>
+          <select class="bg-gray-800" id="prioridade" name="prioridade" required>
+            <option value="" disabled selected>Selecione a prioridade</option>
+            <option value="alta">Alta</option>
+            <option value="media">Média</option>
+            <option value="baixa">Baixa</option>
+          </select>
+          <button
+            id="btnCriarChamado"
+            type="submit"
+            class="bg-emerald-600 text-white px-4 py-2 rounded-lg"
+          >
+            Criar Chamado
+          </button>
+        </form>
+      </div>
+    
   </body>
 </html>
