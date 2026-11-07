@@ -95,7 +95,7 @@
       </main>
       </div>
 
-      // ------------FIM DASHBOARD-----------------
+       <!-- ------------FIM DASHBOARD----------------- -->
 
       <div id="criarChamado" class="bg-gray-900 flex flex-col p-6 border-l border-gray-700 ">
         <h1 class="text-2xl font-bold">Criar Chamado</h1>
@@ -106,7 +106,7 @@
             name="titulo"
             type="text"
             placeholder="Título do chamado"
-            class="bg-gray-800"
+            class="bg-gray-800 rounded p-3"
             required
           />
           <label for="descricao">Descrição:</label>
@@ -114,11 +114,11 @@
             id="descricao"
             name="descricao"
             placeholder="Descreva seu problema."
-            class="bg-gray-800"
+            class="bg-gray-800 rounded p-3"
             required
           ></textarea>
           <label for="prioridade">Prioridade:</label>
-          <select class="bg-gray-800" id="prioridade" name="prioridade" required>
+          <select class="bg-gray-800 rounded p-3 cursor-pointer" id="prioridade" name="prioridade" required>
             <option value="" disabled selected>Selecione a prioridade</option>
             <option value="alta">Alta</option>
             <option value="media">Média</option>
@@ -127,11 +127,15 @@
           <button
             id="btnCriarChamado"
             type="submit"
-            class="bg-emerald-600 text-white px-4 py-2 rounded-lg"
+            class="bg-emerald-600 text-white px-4 py-2 rounded-lg cursor-pointer hover:bg-emerald-700 transition-colors duration-300"
           >
             Criar Chamado
           </button>
         </form>
+      </div>
+
+      <div id="chamados" class="bg-gray-900 flex flex-col p-4 border border-gray-700">
+        <!-- cards dos chamados aqui -->
       </div>
     
   </body>

@@ -4,15 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
-  },
+  "dev:ts": "tsc -w",
+  "dev:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+  "dev": "concurrently \"npm:dev:ts\" \"npm:dev:css\""
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.3",
+    "concurrently": "^10.0.6",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2"
   }
