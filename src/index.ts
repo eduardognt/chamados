@@ -4,6 +4,7 @@ interface Chamado {
   descricao: string;
   prioridade: string;
   dataCriacao: Date;
+  status: "aberto" | "andamento" | "fechado";
 }
 
 const chamados: Chamado[] = [];
@@ -27,6 +28,7 @@ chamadoForm?.addEventListener("submit", (event) => {
     descricao: descricaoInput.value,
     prioridade: prioridadeSelect.value,
     dataCriacao: new Date(),
+    status: "aberto",
   };
 
   chamados.push(novoChamado);
@@ -44,13 +46,14 @@ chamadoForm?.addEventListener("submit", (event) => {
     const pDesc = document.createElement("p");
     const pPrioridade = document.createElement("p");
     const pDataCriacao = document.createElement("p");
+    const pStatus = document.createElement("p");
 
     h2.textContent = chamado.titulo;
     pId.textContent = `ID: ${chamado.id}`;
     pDesc.textContent = `Descrição: ${chamado.descricao}`;
     pPrioridade.textContent = `Prioridade: ${chamado.prioridade}`;
     pDataCriacao.textContent = `Data de Criação: ${(chamado.dataCriacao).toLocaleString()}`;
-
+    pStatus.textContent = `Status: ${chamado.status}`;
     chamadoElement.classList.add("bg-gray-800", "p-4", "space-y-4", "mb-4","border", "border-gray-700", "rounded",);
     h2.classList.add("text-xl", "font-bold");
     pDataCriacao.classList.add("text-gray-500");
@@ -60,6 +63,7 @@ chamadoForm?.addEventListener("submit", (event) => {
     chamadoElement.appendChild(pDesc);
     chamadoElement.appendChild(pPrioridade);
     chamadoElement.appendChild(pDataCriacao);
+    chamadoElement.appendChild(pStatus);
 
     chamadosDiv?.appendChild(chamadoElement);
     
