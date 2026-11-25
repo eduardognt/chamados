@@ -18,7 +18,6 @@ chamadoForm?.addEventListener("submit", (event) => {
     if (chamadosDiv) {
         chamadosDiv.innerHTML = "";
     }
-    console.log(chamados);
     chamados.forEach((chamado) => {
         const chamadoElement = document.createElement("div");
         const h2 = document.createElement("h2");
@@ -38,15 +37,24 @@ chamadoForm?.addEventListener("submit", (event) => {
         const fechado = document.createElement("option");
         fechado.value = "fechado";
         fechado.textContent = "Fechado";
-        selectStatus.value = chamado.status;
-        selectStatus.dataset.id = chamado.id;
-        selectStatus.addEventListener("change", () => {
-            console.log(chamado.id);
-            console.log(selectStatus.value);
-        });
         selectStatus.appendChild(aberto);
         selectStatus.appendChild(andamento);
         selectStatus.appendChild(fechado);
+        selectStatus.value = chamado.status;
+        selectStatus.dataset.id = chamado.id;
+        selectStatus.addEventListener("change", () => {
+            const chamadoEncontrado = chamados.find((chamado) => {
+                return chamado.id === selectStatus.dataset.id;
+            });
+            if (chamadoEncontrado) {
+                if (selectStatus.value === "aberto" ||
+                    selectStatus.value === "andamento" ||
+                    selectStatus.value === "fechado") {
+                    chamadoEncontrado.status = selectStatus.value;
+                    pStatus.textContent = `Status: ${chamadoEncontrado.status}`;
+                }
+            }
+        });
         selectStatus.classList.add("bg-gray-800");
         p.textContent = "Alterar status:";
         h2.textContent = chamado.titulo;
@@ -54,7 +62,7 @@ chamadoForm?.addEventListener("submit", (event) => {
         pDesc.textContent = `Descrição: ${chamado.descricao}`;
         pPrioridade.textContent = `Prioridade: ${chamado.prioridade}`;
         pDataCriacao.textContent = `Data de Criação: ${chamado.dataCriacao.toLocaleString()}`;
-        pStatus.textContent = `Status atual: ${chamado.status}`;
+        pStatus.textContent = `Status: ${chamado.status}`;
         chamadoElement.classList.add("bg-gray-800", "p-4", "space-y-4", "mb-4", "border", "border-gray-700", "rounded");
         h2.classList.add("text-xl", "font-bold");
         pDataCriacao.classList.add("text-gray-500");
